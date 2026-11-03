@@ -1,0 +1,324 @@
+[gd_scene format=3 uid="uid://bamiouxouvm5c"]
+
+[ext_resource type="Texture2D" uid="uid://bkiy8xl60jatr" path="res://assets/dragon_pieces.png" id="1_ixu8j"]
+[ext_resource type="Script" uid="uid://bhru0il15rrfd" path="res://dragon.gd" id="1_n6spy"]
+[ext_resource type="Texture2D" uid="uid://bknflo7mwv6ma" path="res://assets/schloss.jpg" id="2_gyrd2"]
+[ext_resource type="Animation" uid="uid://dsw7807mm83kf" path="res://assets/fire.res" id="3_qxdfn"]
+[ext_resource type="Animation" uid="uid://3h1nm4hth6sl" path="res://assets/fly.res" id="4_lhjy6"]
+[ext_resource type="Script" uid="uid://boa5scnw8xkf7" path="res://camera_2d.gd" id="5_mpji6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1us10"]
+
+[sub_resource type="Animation" id="Animation_lhjy6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dragon/Head/Fire:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qxdfn"]
+_data = {
+&"RESET": SubResource("Animation_lhjy6"),
+&"fire": ExtResource("3_qxdfn")
+}
+
+[sub_resource type="Animation" id="Animation_qxdfn"]
+length = 3.0000000000000004
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dragon/Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.34906584]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dragon/Tail:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.10471976]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dragon/Wings:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.116937056]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dragon/Leg2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.6091199]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dragon/Leg1:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.097812]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Dragon/Head/Fire:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mpji6"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dragon/Head:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.34906584, -0.5934119, -0.34906584]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dragon/Tail:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.10471976, 0.08726646, -0.10471976]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.13962634, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dragon/Leg1:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.13962634]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dragon/Leg2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.13962634]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dragon/Head/Fire:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyrd2"]
+_data = {
+&"RESET": SubResource("Animation_qxdfn"),
+&"fly": ExtResource("4_lhjy6"),
+&"idle": SubResource("Animation_mpji6")
+}
+
+[node name="Game" type="Node2D" unique_id=2098429266]
+position = Vector2(355, 148)
+scale = Vector2(0.4, 0.4)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=891952457]
+position = Vector2(-100, 1622.5)
+scale = Vector2(1.9935151, 1.8932685)
+texture = ExtResource("2_gyrd2")
+
+[node name="Dragon" type="CharacterBody2D" parent="." unique_id=1115695872]
+position = Vector2(842.49994, -87.499985)
+script = ExtResource("1_n6spy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dragon" unique_id=425131134]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_1us10")
+
+[node name="Arm2" type="Sprite2D" parent="Dragon" unique_id=1729700667]
+position = Vector2(-64.0307, 410.8154)
+rotation = -0.6108653
+scale = Vector2(0.626165, 0.8389333)
+texture = ExtResource("1_ixu8j")
+offset = Vector2(-128.89746, -13.518433)
+region_enabled = true
+region_rect = Rect2(112, 608, 296, 160)
+
+[node name="Tail" type="Sprite2D" parent="Dragon" unique_id=2075348484]
+position = Vector2(352.49994, 545)
+rotation = -0.10471976
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("1_ixu8j")
+offset = Vector2(221, 139)
+region_enabled = true
+region_rect = Rect2(984, 592, 528, 360)
+
+[node name="Leg1" type="Sprite2D" parent="Dragon" unique_id=1672094330]
+position = Vector2(53.032654, 535.1633)
+rotation = -1.097812
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("1_ixu8j")
+offset = Vector2(-11, 101)
+region_enabled = true
+region_rect = Rect2(528, 576, 176, 360)
+
+[node name="Body" type="Sprite2D" parent="Dragon" unique_id=1000081227]
+position = Vector2(137.99982, 478.9999)
+rotation = 2.8793237
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("1_ixu8j")
+region_enabled = true
+region_rect = Rect2(1048, 0, 488, 480)
+
+[node name="Head" type="Sprite2D" parent="Dragon" unique_id=617455709]
+position = Vector2(-52.345825, 377.38065)
+rotation = -0.34906584
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_ixu8j")
+offset = Vector2(-137, -107.999985)
+region_enabled = true
+region_rect = Rect2(24, 192, 335, 274)
+
+[node name="Fire" type="Sprite2D" parent="Dragon/Head" unique_id=761101976]
+visible = false
+position = Vector2(-283.90085, -199.7037)
+rotation = -0.9504168
+texture = ExtResource("1_ixu8j")
+offset = Vector2(-33.517822, -58.868286)
+region_enabled = true
+region_rect = Rect2(80, 24, 175, 157)
+
+[node name="Arm1" type="Sprite2D" parent="Dragon" unique_id=487737700]
+position = Vector2(-26.18512, 432.6246)
+rotation = -0.3138556
+scale = Vector2(0.65858006, 1.0468909)
+texture = ExtResource("1_ixu8j")
+offset = Vector2(-107.67212, 0.9595947)
+region_enabled = true
+region_rect = Rect2(120, 800, 272, 136)
+
+[node name="Wings" type="Sprite2D" parent="Dragon" unique_id=481817409]
+position = Vector2(102.785706, 373.44357)
+rotation = -0.116937056
+scale = Vector2(0.99999994, 0.9999999)
+texture = ExtResource("1_ixu8j")
+offset = Vector2(260, -125.00003)
+region_enabled = true
+region_rect = Rect2(376, 144, 656, 464)
+
+[node name="Leg2" type="Sprite2D" parent="Dragon" unique_id=47841966]
+position = Vector2(129.99988, 530)
+rotation = -0.6091199
+scale = Vector2(0.99999994, 0.9999999)
+texture = ExtResource("1_ixu8j")
+offset = Vector2(22, 111)
+region_enabled = true
+region_rect = Rect2(712, 584, 200, 352)
+
+[node name="FireAnimationPlayer" type="AnimationPlayer" parent="Dragon" unique_id=1151238360]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_qxdfn")
+autoplay = &"idle"
+
+[node name="MoveAnimationPlayer" type="AnimationPlayer" parent="Dragon" unique_id=2084444644]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_gyrd2")
+
+[node name="AudioStreamFire" type="AudioStreamPlayer" parent="Dragon" unique_id=1947409586]
+volume_db = -17.335
+pitch_scale = 1.3
+
+[node name="AudioStreamWings" type="AudioStreamPlayer" parent="Dragon" unique_id=2115088851]
+pitch_scale = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="Dragon" unique_id=675559443]
+position = Vector2(-1254.9999, -252.49992)
+scale = Vector2(0.9999998, 0.9999998)
+anchor_mode = 0
+zoom = Vector2(0.9, 0.9)
+script = ExtResource("5_mpji6")
